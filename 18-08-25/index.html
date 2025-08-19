@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Model Demonstration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+      background: #fafafa;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Outer box for margin */
+    .margin-box {
+      display: inline-block;
+      margin: 20px; /* adjustable */
+    }
+
+    /* Border box */
+    .border-box {
+      border: 5px solid orange; /* adjustable */
+      display: inline-block;
+      background: orange; /* border color visible */
+    }
+
+    /* Padding box */
+    .padding-box {
+      padding: 30px; /* adjustable */
+      background: gold; /* padding color */
+    }
+
+    /* Content box */
+    .content-box {
+      width: 150px;
+      height: 120px;
+      background: deepskyblue; /* content */
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Control Panel */
+    .panel {
+      margin-top: 20px;
+      background: #f1f1f1;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      width: 450px;
+      text-align: left;
+    }
+
+    .panel label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 12px 0;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 200px;
+      height: 6px;
+      background: #ddd;
+      border-radius: 5px;
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 6px;
+      background: purple;
+      border-radius: 5px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      background: purple;
+      border-radius: 50%;
+      cursor: pointer;
+      margin-top: -5px;
+    }
+
+    /* Legend */
+    .legend {
+      margin-top: 30px;
+    }
+    .legend h3 {
+      text-align: center;
+      margin-bottom: 12px;
+      color: #333;
+    }
+    .legend div {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      color: #444;
+    }
+    .legend span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .margin { border: 1px dashed black; background: transparent; }
+    .border { background: orange; }
+    .padding { background: gold; }
+    .content { background: deepskyblue; }
+  </style>
+</head>
+<body>
+
+  <h2>CSS Box Model Demonstration</h2>
+
+  <div class="container">
+    <!-- Real demo box -->
+    <div class="margin-box" id="marginBox">
+      <div class="border-box" id="borderBox">
+        <div class="padding-box" id="paddingBox">
+          <div class="content-box">Content</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="panel">
+      <label>Margin: 
+        <input type="range" id="margin" min="0" max="100" value="20">
+        <span id="marginVal">20px</span>
+      </label>
+      <label>Border: 
+        <input type="range" id="border" min="0" max="50" value="5">
+        <span id="borderVal">5px</span>
+      </label>
+      <label>Padding: 
+        <input type="range" id="padding" min="0" max="100" value="30">
+        <span id="paddingVal">30px</span>
+      </label>
+    </div>
+
+    <!-- Legend -->
+    <div class="panel legend">
+      <h3>Box Model Components</h3>
+      <div><span class="margin"></span> <b>Margin</b> - Space outside the border (transparent)</div>
+      <div><span class="border"></span> <b>Border</b> - Surrounds the padding and content</div>
+      <div><span class="padding"></span> <b>Padding</b> - Space between border and content</div>
+      <div><span class="content"></span> <b>Content</b> - Actual content of the box</div>
+    </div>
+  </div>
+
+  <script>
+    const marginBox = document.getElementById('marginBox');
+    const borderBox = document.getElementById('borderBox');
+    const paddingBox = document.getElementById('paddingBox');
+
+    const margin = document.getElementById('margin');
+    const border = document.getElementById('border');
+    const padding = document.getElementById('padding');
+
+    const marginVal = document.getElementById('marginVal');
+    const borderVal = document.getElementById('borderVal');
+    const paddingVal = document.getElementById('paddingVal');
+
+    // Margin
+    margin.addEventListener('input', () => {
+      marginBox.style.margin = margin.value + "px";
+      marginVal.textContent = margin.value + "px";
+    });
+
+    // Border
+    border.addEventListener('input', () => {
+      borderBox.style.borderWidth = border.value + "px";
+      borderVal.textContent = border.value + "px";
+    });
+
+    // Padding
+    padding.addEventListener('input', () => {
+      paddingBox.style.padding = padding.value + "px";
+      paddingVal.textContent = padding.value + "px";
+    });
+  </script>
+
+</body>
+</html>
