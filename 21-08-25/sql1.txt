@@ -1,0 +1,25 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table ece(
+sid int,
+sname varchar(30),
+smarks int
+);
+Insert into ece values(1,'apple',10),(2,'bana',10),(3,'can',9);
+show tables from sathyabama;
+desc ece;
+select * from ece;
+
+Alter table ece add(
+semail varchar(20));
+
+alter table ece drop smarks;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE ece SET sid = 101 WHERE sid = 1;
+SET SQL_SAFE_UPDATES = 1;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE ece SET sid = 102 WHERE sid = 2;
+SET SQL_SAFE_UPDATES = 1;
