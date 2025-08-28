@@ -1,0 +1,26 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table staff2(
+sid int primary key,
+sfname varchar(20) not null,
+slname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null
+);
+insert into staff2 values(1,'abhi','kumar','operations',800000),(2,'sunitha','vani','Hr',700000),(3,'Veera','kumar','Manager',400000),(4,'Ramu','david','admin',200000),(5,'sunny','chopra','operations',200000);
+select *from staff2;
+
+#using union
+select sfname from staff2 union select slname from staff2;
+
+#using union all
+select sfname from staff2 union all select slname from staff2;
+
+#using use case
+select ssalary ,
+case
+ when ssalary<=100000 then 'poor' 
+ when ssalary between 200000 and 300000 then 'average'
+ else 'rich'
+end as s_salary  from staff2;

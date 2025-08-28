@@ -1,0 +1,487 @@
+show databases;
+create database sathyabama3;
+use sathayabama3;
+create table mec(
+sid int,
+sname varchar(20),
+spno int
+);
+show tables from sathyabama3;
+desc mec;
+select * from mec;
+insert into mec values(1,'abc',123),(2,'def',234),(3,'ghi',345);
+select * from mec;
+alter table mec 
+add semail varchar(20);
+select * from mec;
+alter table mec
+drop spno;
+set sql_safe_updates=0;
+update mec set sname='xyz' where sname='def';
+set sql_safe_updates=1;
+select * from mec;
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table CSE(
+sid int,
+sname varchar(30),
+spno int
+);
+show tables from sathyabama;
+desc CSE;
+select * from CSE;
+alter table cse 
+add semail varchar(20);
+
+
+
+
+
+show databases;
+create database saThyabaMa;
+use saThyabaMa;
+create table CSE(
+sid int,
+sname varchar(20),
+spno int,
+sano int,
+scourse char(20)
+);
+show tables from saThyabaMa;
+desc cse;
+select * from cse;
+
+
+
+
+
+show databases;
+create database sathyabama5;
+use sathyabama5;
+create table student(
+sid int,
+sfname varchar(20),
+slname varchar(20),
+spno int
+);
+show tables from sathyabama5;
+desc student;
+select * from student;
+
+insert into student values(1,'apple','le',2),(2,'banana','na',4),(3,'cherry','ry',6),(5,'donkey','ey',7);
+select * from student;
+
+set sql_safe_updates=0;
+delete  from student where sid=5;
+set sql_safe_updates=1;
+
+truncate table  student;
+
+alter table student 
+drop slname;
+
+drop table student;
+
+
+
+
+
+
+show databases;
+create database sathyabama5;
+use sathyabama5;
+start transaction;
+create table students(
+sid int,
+sfname varchar(20),
+slname varchar(20),
+spno int
+);
+insert into students values(1,'apple','le',2);
+savepoint A;
+select * from students;
+insert into students values(2,'banana','na',4);
+savepoint B;
+select * from students;
+rollback to A;
+
+commit;
+select * from students;
+
+
+
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table mech(
+sid int,
+sname varchar(30),
+smarks int
+);
+Insert into mech values(1004,'xyz',4);
+show tables from sathyabama;
+desc mech;
+select * from mech;
+
+Alter table mech add(
+scountry varchar(20) default 'India'
+);
+Alter table mech rename column
+scountry to slocation;
+
+set sql_safe_updates=0;
+update mech set  slocation='china'
+where sid=1003;
+set sql_safe_updates=1;
+
+set sql_safe_updates=0;
+update mech set  slocation='china' , smarks=8
+where sid=1002;
+set sql_safe_updates=1;
+
+set sql_safe_updates=0;
+update mech set smarks = smarks+1;
+set sql_safe_updates=1;
+
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table aces(
+id int not null,
+frstname varchar(20) not null,
+scndname varchar(20) not null,
+age int check(age>=18)
+);
+
+select * from aces;
+#alter constraint 
+alter table aces
+add age int check(age<=130);
+
+#alter drop
+alter table aces
+drop scndname;
+
+
+
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+drop database sathyabama;
+use sathyabama;
+create table category(
+cid int primary key,
+cname varchar(20) not null
+);
+select * from category;
+insert into category values(1,'electronics'),(2,'furniture');
+
+
+create table products(
+pid int primary key,
+pname varchar(20) not null,
+cid int not null,
+foreign key(cid) references category(cid)  
+on delete cascade
+on update cascade
+);
+insert into products values(1001,'phn',1),(1002,'charger',1),(1003,'sofa',2);
+select * from products;
+
+#delete cascad
+set sql_safe_updates=0;
+delete  from products where cid=2;
+set sql_safe_updates=1;
+
+#update cascad
+update products
+set cid=2 where cid=1;
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table ace(
+sid int not null,
+sname varchar(20) not null,
+semail varchar(20) not null,
+Unique(id)
+);
+desc ace;
+select * from ace;
+
+#modify table with constraints
+alter table ace
+modify semail varchar(20) unique;
+
+#drop index
+alter table ace
+drop index ace;
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table student(
+sid int primary key,
+sname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null,
+spno int unique
+);
+insert into student values(1,'apple','hr',20000,123),(2,'apple','operations',30000,240),(3,'cherry','hr',35000,345),(4,'danesh','analyst',45000,678),(5,'engun','mechanical',10000,321);
+select * from student;
+
+#using as
+select  ssalary as student_salary from student;
+
+#using like
+select sname from student where sname like "_p%";
+ 
+#using view
+create view  least_salary   as select ssalary from student where ssalary<=20000;
+select * from least_salary;
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table college(
+cid int primary key,
+cname varchar(20) not null
+);
+insert into college values(101,'sathyabama'),(102,'VIT'),(103,'SRM');
+select * from college;
+
+create table department1(
+did int primary key,
+dname varchar(20) not null,
+cid int not null,
+foreign key(cid) references college(cid) on delete cascade on update cascade 
+);
+insert into department1 values(1,'cse',101),(2,'eee',102),(3,'ece',101),(4,'mec',103),(5,'aero',103);
+select * from department1;
+ 
+create table student1(
+sid int primary key,
+sname varchar(20) not null,
+did int not null,
+foreign key(did) references department1(did) on delete cascade on update cascade
+) ;
+insert into student1 values(10,'vimala',1),(20,'amala',3),(30,'kamala',5),(40,'samata',2),(50,'mamata',3),(60,'drm',4);
+select * from student1;
+
+#delete cascade
+set sql_safe_updates=0;
+delete from college where cid=101;
+set sql_safe_updates=1;
+
+#update casacade
+update college set cid=105 where cid=103;
+
+ 
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table  library(
+bid int primary key,
+bname varchar(20) not null,
+bauthor varchar(20) not null,
+bcost int not null,
+byear int  not null
+);
+insert into library values(1,'romeo juliet','romeo',200,2009),(2,'titanic','juliet',300,2010),(3,'digital processing','ramnad',250,2011),(4,'cao','ramu',350,2015),(5,'os','savitha',210,2020),(6,'c','george',500,2001),(7,'python','jayaram',1100,2018);
+select * from library;
+ 
+ #using greater =
+ select * from library where byear>=2020;
+ 
+ #using less =
+ select bname,byear from library where bcost<=300;
+ 
+ #using not =
+ select bid,bname from library  where bcost!=300; 
+ 
+ #using =
+ select bid,bcost as Book_name from library where bname='c';
+ 
+ #using greater
+ select * from library where bcost>250;
+ 
+ #using less than
+ select * from library where byear<2010;
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table worker(
+wid int primary key,
+wname varchar(20) not null,
+wdept varchar(20) not null,
+wsalary long not null,
+wpno long not null
+);
+insert into worker values(101,'sunitha','hr',20000,1234),(102,'seetha','operations',23000,2345),(104,'harshi','manager',25000,3456),(105,'triv','tl',28000,4567),(106,'vaish','operations',30000,5678);
+select * from worker;
+
+#using and
+select wdept as w_department,wsalary as w_salary from worker where wdept='operations' and wsalary<=30000;
+
+#using or
+select * from worker where  wname like's%' or wsalary=25000;
+
+#using not
+select wid,wname from worker where wpno=1234 and not wdept='operations';
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table persons(
+pid int primary key,
+pname varchar(20) not null,
+pemail varchar(20) unique,
+pno int unique
+);
+insert into persons values(101,'manaswi','abc@gmail.com',1470),(102,'vinne','def@gmail.com',2580),(103,'harika','ghi2@gmail.com',3690),(104,'meghana','jkl2@gmail.com',7410),(105,'lalli','mno@gamil.com',8502);
+select * from persons;
+
+#in operator
+select  * from persons where pid in (101,103);
+select pemail  from persons where pname in ('harika');
+
+#using not in
+select * from persons where pid between 101 and 103  and pno not in (1234,3690);
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table staff1(
+sid int primary key,
+sname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null
+);
+insert into staff1 values(1,'vanitha','operations',800000),(2,'sunitha','Hr',700000),(3,'Veera','Manager',400000),(4,'Ramu','admin',200000),(5,'sunny','operations',200000);
+select * from staff1;
+
+select avg(ssalary) as s_salary from staff1  where sdept in ('admin') having avg(ssalary)>100000 ;
+
+select min(ssalary) as least_salary from staff1 having min(ssalary)<2000000;
+
+select max(ssalary) as high_salary from staff1 having max(ssalary)>10000;
+
+select sum(ssalary) as total_price from staff1 where sdept in ('hr','admin') having sum(ssalary)>100000;
+
+select sum(ssalary) as total_price from staff1 where ssalary between 500000 and 2000000 having sum(ssalary)>100000;
+
+Select count(*)  from staff1 where sname like 'v%'; 
+
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table staff(
+sid int primary key,
+sname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null
+);
+insert into staff values(1,'vanitha','operations',800000),(2,'sunitha','Hr',700000),(3,'Veera','Manager',400000),(4,'Ramu','admin',200000),(5,'sunny','operations',200000);
+select * from staff;
+
+# practise 
+select * from staff where ssalary between 70000 and 300000 and sdept not in('hr','admin');
+
+select * from staff where sname like 'v%' and ssalary>=200000;
+
+select * from staff where ssalary<1000000 and sdept not in ('admin');
+
+
+
+
+
+
+show databases;
+create database sathyabama;
+use sathyabama;
+create table staff2(
+sid int primary key,
+sfname varchar(20) not null,
+slname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null
+);
+insert into staff2 values(1,'abhi','kumar','operations',800000),(2,'sunitha','vani','Hr',700000),(3,'Veera','kumar','Manager',400000),(4,'Ramu','david','admin',200000),(5,'sunny','chopra','operations',200000);
+select *from staff2;
+
+#using union
+select sfname from staff2 union select slname from staff2;
+
+#using union all
+select sfname from staff2 union all select slname from staff2;
+
+#using use case
+select ssalary ,
+case
+ when ssalary<=100000 then 'poor' 
+ when ssalary between 200000 and 300000 then 'average'
+ else 'rich'
+end as s_salary  from staff2;
+
+
+
+

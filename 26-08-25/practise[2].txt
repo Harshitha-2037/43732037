@@ -1,0 +1,18 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table staff(
+sid int primary key,
+sname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null
+);
+insert into staff values(1,'vanitha','operations',800000),(2,'sunitha','Hr',700000),(3,'Veera','Manager',400000),(4,'Ramu','admin',200000),(5,'sunny','operations',200000);
+select * from staff;
+
+# practise 
+select * from staff where ssalary between 70000 and 300000 and sdept not in('hr','admin');
+
+select * from staff where sname like 'v%' and ssalary>=200000;
+
+select * from staff where ssalary<1000000 and sdept not in ('admin');

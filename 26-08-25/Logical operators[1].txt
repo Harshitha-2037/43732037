@@ -1,0 +1,21 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table worker(
+wid int primary key,
+wname varchar(20) not null,
+wdept varchar(20) not null,
+wsalary long not null,
+wpno long not null
+);
+insert into worker values(101,'sunitha','hr',20000,1234),(102,'seetha','operations',23000,2345),(104,'harshi','manager',25000,3456),(105,'triv','tl',28000,4567),(106,'vaish','operations',30000,5678);
+select * from worker;
+
+#using and
+select wdept as w_department,wsalary as w_salary from worker where wdept='operations' and wsalary<=30000;
+
+#using or
+select * from worker where  wname like's%' or wsalary=25000;
+
+#using not
+select wid,wname from worker where wpno=1234 and not wdept='operations';

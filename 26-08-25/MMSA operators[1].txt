@@ -1,0 +1,24 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table staff1(
+sid int primary key,
+sname varchar(20) not null,
+sdept varchar(20) not null,
+ssalary long not null
+);
+insert into staff1 values(1,'vanitha','operations',800000),(2,'sunitha','Hr',700000),(3,'Veera','Manager',400000),(4,'Ramu','admin',200000),(5,'sunny','operations',200000);
+select * from staff1;
+
+select avg(ssalary) as s_salary from staff1  where sdept in ('admin') having avg(ssalary)>100000 ;
+
+select min(ssalary) as least_salary from staff1 having min(ssalary)<2000000;
+
+select max(ssalary) as high_salary from staff1 having max(ssalary)>10000;
+
+select sum(ssalary) as total_price from staff1 where sdept in ('hr','admin') having sum(ssalary)>100000;
+
+select sum(ssalary) as total_price from staff1 where ssalary between 500000 and 2000000 having sum(ssalary)>100000;
+
+Select count(*)  from staff1 where sname like 'v%'; 
+

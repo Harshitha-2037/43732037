@@ -1,0 +1,30 @@
+show databases;
+create database sathyabama;
+use sathyabama;
+create table  library(
+bid int primary key,
+bname varchar(20) not null,
+bauthor varchar(20) not null,
+bcost int not null,
+byear int  not null
+);
+insert into library values(1,'romeo juliet','romeo',200,2009),(2,'titanic','juliet',300,2010),(3,'digital processing','ramnad',250,2011),(4,'cao','ramu',350,2015),(5,'os','savitha',210,2020),(6,'c','george',500,2001),(7,'python','jayaram',1100,2018);
+select * from library;
+ 
+ #using greater =
+ select * from library where byear>=2020;
+ 
+ #using less =
+ select bname,byear from library where bcost<=300;
+ 
+ #using not =
+ select bid,bname from library  where bcost!=300; 
+ 
+ #using =
+ select bid,bcost as Book_name from library where bname='c';
+ 
+ #using greater
+ select * from library where bcost>250;
+ 
+ #using less than
+ select * from library where byear<2010;
