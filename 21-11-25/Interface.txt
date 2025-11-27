@@ -1,0 +1,24 @@
+package project3;
+
+interface Vehicle {
+    void start();  // abstract method
+    void stop();   // abstract method
+}
+
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car starts");
+    }
+
+    public void stop() {
+        System.out.println("Car stops");
+    }
+}
+
+public class Interface {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.start();
+        c.stop();
+    }
+}
