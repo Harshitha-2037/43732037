@@ -1,0 +1,81 @@
+package project2;
+
+public class StringExample {
+		public static void main(String args[]){
+
+
+		String s1="java";//creating string by java string literal
+
+
+		char ch[]={'s','t','r','i','n','g','s'};
+
+
+		String s2=new String(ch);//converting char array to string
+
+
+		String s3=new String("example");//creating java string by new keyword
+
+
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+		String s="Sachin";  
+		System.out.println(s.toUpperCase());//SACHIN  
+		System.out.println(s.toLowerCase());//sachin  
+		System.out.println(s);
+		String S="  Sachin is a cricket player  ";  
+		System.out.println(S);//  Sachin    
+		System.out.println(S.trim());
+		String a="Sachin";  
+		 System.out.println(a.startsWith("Sa"));//true  
+		 System.out.println(a.endsWith("N"));
+		 String b="Sachin Ten";  
+		 System.out.println(b.charAt(0));//S  
+		 System.out.println(b.charAt(3));
+		 String c="Sachin";  
+		 System.out.println(c.length());
+
+		 String q=new String("Sachin");  
+		 String ss=q.intern();  
+
+		 System.out.println(s2);
+		 int x=10;  
+		 String d=String.valueOf(a);  
+		 System.out.println(d+10);  
+		 String Ss="Java is a programming language. Java is a platform. Java is an Island.";    
+		 String replaceString=Ss.replace("Java","Python");//replaces all occurrences of "Java" to "Python"    
+		 System.out.println(replaceString); 
+		 String Str="Sachin"+" Tendulkar";  
+		   System.out.println(Str);
+		   String ss1="Sachin ";  
+		   String ss2="Tendulkar";  
+		   String ss3=s1.concat(ss2);  
+		   System.out.println(ss3);
+		   String S1="Sachin";  
+		   String SS1=new String("Sachin");  
+		   String S2="Saurav";   
+		   System.out.println(S1.equals(SS1));//true  
+		   System.out.println(S1.equals(S2));
+		   String S3=new String("Sachin");  
+		   System.out.println(s1==s2);//true (because both refer to same instance)  
+		   System.out.println(S1==S3);
+		   System.out.println(s1.compareTo(s2));//0  
+		   System.out.println(s1.compareTo(s3));//1(because s1>s3)  
+		   System.out.println(s3.compareTo(s1));
+		   String i="javatpoint is a very good website";  
+		   String replaceStrig=i.replaceAll("a","e");
+		   System.out.println(replaceStrig);  
+
+
+		   String v="java string split method by javatpoint";  
+		   String[] words=v.split("\\s");//splits the string based on whitespace  
+		   //using java foreach loop to print elements of string array  
+		   for(String w:words){  
+		   System.out.println(w); 
+		   }
+
+
+
+		}
+
+}
