@@ -1,0 +1,15 @@
+package project27;
+import java.util.*;  
+public class linkedhashset{  
+public static void main(String args[]){  
+LinkedHashSet<String> set=new LinkedHashSet<String>();  
+set.add("harshi");  
+set.add("trivs");  
+set.add("null");  
+set.add("trivs");  
+Iterator<String> itr=set.iterator();  
+while(itr.hasNext()){  
+System.out.println(itr.next());  
+}  
+}  
+}  

@@ -1,0 +1,17 @@
+package project27;
+import java.util.*;  
+public class treeset{  
+public static void main(String args[]){  
+
+TreeSet<String> set=new TreeSet<String>();  
+set.add("harshi");  
+set.add("vaishu");  
+set.add("trivs");  
+set.add("vaishu");  
+ 
+Iterator<String> itr=set.iterator();  
+while(itr.hasNext()){  
+System.out.println(itr.next());  
+}  
+}  
+}  

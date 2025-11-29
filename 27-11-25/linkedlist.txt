@@ -1,0 +1,15 @@
+package project27;
+	import java.util.*;  
+	public class linkedlist {
+	public static void main(String args[]){  
+	LinkedList<String> al=new LinkedList<>();  
+	al.add("hello");  
+	al.add("java");  
+	al.add("1");  
+	al.add("2");  
+	Iterator<String> itr=al.iterator();  
+	while(itr.hasNext()){  
+	System.out.println(itr.next());  
+	}  
+	}  
+}

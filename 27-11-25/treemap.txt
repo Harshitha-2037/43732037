@@ -1,0 +1,18 @@
+package project27;
+import java.util.*;  
+public class treemap{  
+ public static void main(String args[]){  
+   TreeMap<Integer,String> treeMap=new TreeMap<>();    
+   treeMap.put(101,"harshi");  
+   treeMap.put(100,"trivs");    
+   treeMap.put(100,"vaishu");  
+   treeMap.put(105,"harshi");   
+   treeMap.put(104,null);   
+   treeMap.put(106,null);
+   System.out.println("Iterating Treemap...");  
+   for(Map.Entry m : treeMap.entrySet()){    
+    System.out.println(m.getKey()+" "+m.getValue());    
+   }  
+}  
+}
+

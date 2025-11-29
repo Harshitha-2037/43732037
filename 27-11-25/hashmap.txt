@@ -1,0 +1,20 @@
+package project27;
+import java.util.*;  
+public class hashmap{  
+ public static void main(String args[]){  
+   HashMap<Integer,String> map=new HashMap<Integer,String>();    
+   map.put(101,"harshi");  
+   map.put(100,"trivs");    
+   map.put(100,"vaishu");  
+   map.put(105,"harshi");   
+   map.put(104,null);   
+   map.put(106,null);
+   map.put(null, "tejas");
+   map.put(null, "heyneh");
+   System.out.println("Iterating Hashmap...");  
+   for(Map.Entry m : map.entrySet()){    
+    System.out.println(m.getKey()+" "+m.getValue());    
+   }  
+}  
+}
+
